@@ -1,1 +1,11 @@
 /* add home page styles here */
+
+
+.selectors {
+    display: flex;
+    flex-direction: row;
+}
+
+input:checked{
+    box-shadow: 2px 2px 10px 2px black;
+}
