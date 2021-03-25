@@ -2,21 +2,21 @@
 import { numberGenerator, didUserWin } from './test/utils.js';
 
 const resultsDiv = document.querySelector('#results-div');
-const winsDiv = document.querySelector('#wins-div');
-const lossesDiv = document.querySelector('#losses-div');
-const submit = document.querySelector('#submit');
-const reset = document.querySelector('#reset');
+const submitButton = document.querySelector('#submit');
+const resetButton = document.querySelector('#reset');
 const winsSpan = document.querySelector('#wins-span');
 const lossesSpan = document.querySelector('#losses-span');
 const drawsSpan = document.querySelector('#draws-span');
+const resetSpan = document.querySelector('#reset-span');
 
 // initialize state
 let wins = 0;
 let losses = 0;
 let total = 0;
+let resetNumber = 0;
 
 // set event listeners to update state and DOM
-submit.addEventListener('click', () => {
+submitButton.addEventListener('click', () => {
     total++;
     const userInput = document.querySelector('input:checked');
     const userGuess = userInput.value;
@@ -40,7 +40,17 @@ submit.addEventListener('click', () => {
         lossesSpan.textContent = losses;
         drawsSpan.textContent = total - wins - losses;
     }
-
-    console.log(computerThrow, didUserWin(userGuess, computerThrow), wins, losses, total);
-
 })
+
+function reset() {
+    resetNumber++;
+    wins = 0;
+    losses = 0;
+    total = 0;
+    winsSpan.textContent = 0;
+    lossesSpan.textContent = 0;
+    drawsSpan.textContent = 0;
+    resetSpan.textContent = resetNumber;
+}
+
+resetButton.addEventListener('click', reset);
