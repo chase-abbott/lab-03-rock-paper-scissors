@@ -7,3 +7,24 @@
 5) Is there some state we need to initialize?
 6) Find all the 'events' (user clicks, form submit, etc) in your app. Ask one by one, "What happens when" for each of these events.
 7) Think about how to validate each of your steps
+
+## HTML Elements
+1) radio buttons with value and name
+    a) Why? to determine what the user will choose, name makes it exclusive
+2)  Explain rules
+    a) How? maybe a list
+3) Button
+    a) Why? To let the script know when to run
+4) Div that holds the result of the game that was just played    
+5) Div that holds wins and losses
+
+## State
+1) wins
+2) computerThrow
+    a) How? Math.random()
+3) losses/total
+
+## Javascript functionality
+1) get value of radio button
+    a) How? document.querySelector('input:checked');
+2)
