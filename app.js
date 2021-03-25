@@ -1,9 +1,6 @@
 // import functions and grab DOM elements
-import { didUserWin } from './test/utils.js';
+import { numberGenerator } from './test/utils.js';
 
-const rockInput = document.querySelector('#rock');
-const paperInput = document.querySelector('#paper');
-const scissorsInput = document.querySelector('#scissors');
 const resultsDiv = document.querySelector('#results-div');
 const winsDiv = document.querySelector('#wins-div');
 const lossesDiv = document.querySelector('#losses-div');
@@ -17,13 +14,30 @@ const lossesSpan = document.querySelector('#losses-span');
 // initialize state
 let wins = 0;
 let total = 0;
-let computerThrow = Math.random();
 
 // set event listeners to update state and DOM
 submit.addEventListener('click', () => {
     total++;
     const userInput = document.querySelector('input:checked');
     const userGuess = userInput.value;
-
+    let computerThrow = numberGenerator(Math.random());
+    // console.log(computerThrow);
+    // console.log(wins);
+    if (userGuess === 'rock' && computerThrow === 'scissors') {
+        wins++;
+        return;
+    }
+    if (userGuess === 'rock' && computerThrow === 'paper') return;
+    if (userGuess === 'paper' && computerThrow === 'scissors') return;
+    if (userGuess === 'paper' && computerThrow === 'rock') {
+        wins++;
+        return;
+    }
+    if (userGuess === 'scissors' && computerThrow === 'paper') {
+        wins++;
+        return;
+    }
+    if (userGuess === 'scissors' && computerThrow === 'rock') return;
+    if (userGuess === computerThrow) return;
 
 })
