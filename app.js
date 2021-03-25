@@ -14,10 +14,16 @@ const lossesSpan = document.querySelector('#losses-span');
 
 
 
-console.log(reset, winsSpan, lossesSpan);
 // initialize state
 let wins = 0;
 let total = 0;
 let computerThrow = Math.random();
 
 // set event listeners to update state and DOM
+submit.addEventListener('click', () => {
+    total++;
+    const userInput = document.querySelector('input:checked');
+    const userGuess = userInput.value;
+
+
+})
