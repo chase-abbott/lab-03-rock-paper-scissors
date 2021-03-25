@@ -12,4 +12,4 @@ export function didUserWin(userGuess, computerThrow) {
     if (userGuess === 'scissors' && computerThrow === 'paper') return 'win';
     if (userGuess === 'scissors' && computerThrow === 'rock') return 'loss';
     if (userGuess === computerThrow) return 'draw';
-};
+}

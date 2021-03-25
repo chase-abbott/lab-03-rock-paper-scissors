@@ -29,6 +29,6 @@ test('This should return false', (expect) => {
 
 test('This should return null', (expect) => {
     expect.equal(didUserWin('rock', 'rock'), 'draw');
-})
+});
 
 

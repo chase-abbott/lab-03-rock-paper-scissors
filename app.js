@@ -8,6 +8,8 @@ const winsSpan = document.querySelector('#wins-span');
 const lossesSpan = document.querySelector('#losses-span');
 const drawsSpan = document.querySelector('#draws-span');
 const resetSpan = document.querySelector('#reset-span');
+const userInput = document.querySelector('input:checked');
+const userGuess = userInput.value;
 
 // initialize state
 let wins = 0;
@@ -18,8 +20,7 @@ let resetNumber = 0;
 // set event listeners to update state and DOM
 submitButton.addEventListener('click', () => {
     total++;
-    const userInput = document.querySelector('input:checked');
-    const userGuess = userInput.value;
+
     let computerThrow = numberGenerator(Math.random());
 
     if (didUserWin(userGuess, computerThrow) === 'win') {
@@ -39,7 +40,7 @@ submitButton.addEventListener('click', () => {
         winsSpan.textContent = wins;
         lossesSpan.textContent = losses;
         drawsSpan.textContent = total - wins - losses;
-    }
+    };
 })
 
 function reset() {
