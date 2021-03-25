@@ -1,1 +1,7 @@
 /* add home page styles here */
+
+
+.selectors {
+    display: flex;
+    flex-direction: row;
+}
