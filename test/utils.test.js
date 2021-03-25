@@ -1,18 +1,17 @@
 // IMPORT MODULES under test here:
-import { isHeadsOrTails } from '../utils.js';
+import { didUserWin } from './utils.js';
 
 const test = QUnit.test;
 
-test('time to test a function', (expect) => {
-    //Arrange
-    // Set up your arguments and expectations
-    const expected = true;
-
-    //Act 
-    // Call the function you're testing and set the result to a const
-    const actual = true;
-
-    //Expect
-    // Make assertions about what is expected versus the actual result
-    expect.equal(actual, expected);
+test('This should return scissors', (expect) => {
+    expect.equal(didUserWin(.2), 'paper');
 });
+
+test('This should return paper', (expect) => {
+    expect.equal(didUserWin(.5), 'scissors');
+});
+
+test('This should return rock', (expect) => {
+    expect.equal(didUserWin(.7), 'rock');
+});
+

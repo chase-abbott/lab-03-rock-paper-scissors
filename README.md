@@ -2,7 +2,7 @@
 ## HTML Elements
 1) radio buttons with value and name
     a) Why? to determine what the user will choose, name makes it exclusive
-    b) photos as a stretch
+    b) photos as a stretch, put photo after input, display: none on input tag in css
 2)  Explain rules
     a) How? maybe a list
 3) Button
