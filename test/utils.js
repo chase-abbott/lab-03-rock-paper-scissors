@@ -4,12 +4,12 @@ export function numberGenerator(randomNumber) {
     return 'rock';
 }
 
-// export function didUserWin(userInput, numberGenerator(randomNumber)) {
-//     if (userInput === 'paper' && numberGenerator(randomNumber) === 'scissors') return true;
-//     if (userInput === 'paper' && numberGenerator(randomNumber) === 'rock') return false;
-//     if (userInput === 'rock' && numberGenerator(randomNumber) === 'scissors') return false;
-//     if (userInput === 'rock' && numberGenerator(randomNumber) === 'paper') return true;
-//     if (userInput === 'scissors' && numberGenerator(randomNumber) === 'paper') return true;
-//     if (userInput === 'scissors' && numberGenerator(randomNumber) === 'rock') return false;
-//     return false;
-// }
+export function didUserWin(userGuess, computerThrow) {
+    if (userGuess === 'rock' && computerThrow === 'scissors') return 'win';
+    if (userGuess === 'rock' && computerThrow === 'paper') return 'loss';
+    if (userGuess === 'paper' && computerThrow === 'scissors') return 'loss';
+    if (userGuess === 'paper' && computerThrow === 'rock') return 'win';
+    if (userGuess === 'scissors' && computerThrow === 'paper') return 'win';
+    if (userGuess === 'scissors' && computerThrow === 'rock') return 'loss';
+    if (userGuess === computerThrow) return 'draw';
+};

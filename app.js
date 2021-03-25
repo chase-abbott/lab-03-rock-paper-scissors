@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { numberGenerator } from './test/utils.js';
+import { numberGenerator, didUserWin } from './test/utils.js';
 
 const resultsDiv = document.querySelector('#results-div');
 const winsDiv = document.querySelector('#wins-div');
@@ -21,63 +21,26 @@ submit.addEventListener('click', () => {
     const userInput = document.querySelector('input:checked');
     const userGuess = userInput.value;
     let computerThrow = numberGenerator(Math.random());
-    console.log(computerThrow);
-    console.log(wins);
-    if (userGuess === 'rock' && computerThrow === 'scissors') {
+
+    if (didUserWin(userGuess, computerThrow) === 'win') {
         wins++;
         resultsDiv.textContent = 'You won!';
         winsSpan.textContent = wins;
         lossesSpan.textContent = losses;
         drawsSpan.textContent = total - wins - losses;
-        return true;
-    }
-    if (userGuess === 'rock' && computerThrow === 'paper') {
+    } else if ((didUserWin(userGuess, computerThrow) === 'loss')) {
         losses++;
         resultsDiv.textContent = 'You Lost :(';
         winsSpan.textContent = wins;
         lossesSpan.textContent = losses;
         drawsSpan.textContent = total - wins - losses;
-        return false;
-    }
-    if (userGuess === 'paper' && computerThrow === 'scissors') {
-        losses++
-        resultsDiv.textContent = 'You Lost :(';
-        winsSpan.textContent = wins;
-        lossesSpan.textContent = losses;
-        drawsSpan.textContent = total - wins - losses;
-        return false;
-    }
-    if (userGuess === 'paper' && computerThrow === 'rock') {
-        wins++;
-        resultsDiv.textContent = 'You won!'
-        winsSpan.textContent = wins;
-        lossesSpan.textContent = losses;
-        drawsSpan.textContent = total - wins - losses;
-        return true;
-    }
-    if (userGuess === 'scissors' && computerThrow === 'paper') {
-        wins++;
-        resultsDiv.textContent = 'You won!'
-        winsSpan.textContent = wins;
-        lossesSpan.textContent = losses;
-        drawsSpan.textContent = total - wins - losses;
-        return true;
-    }
-    if (userGuess === 'scissors' && computerThrow === 'rock') {
-        losses++
-        resultsDiv.textContent = 'You Lost :(';
-        winsSpan.textContent = wins;
-        lossesSpan.textContent = losses;
-        drawsSpan.textContent = total - wins - losses;
-        return false;
-    }
-    if (userGuess === computerThrow) {
+    } else {
         resultsDiv.textContent = "It's a Draw!";
         winsSpan.textContent = wins;
         lossesSpan.textContent = losses;
         drawsSpan.textContent = total - wins - losses;
-        return;
     }
+
+    console.log(computerThrow, didUserWin(userGuess, computerThrow), wins, losses, total);
+
 })
-
-
