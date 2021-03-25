@@ -40,8 +40,8 @@ submitButton.addEventListener('click', () => {
         winsSpan.textContent = wins;
         lossesSpan.textContent = losses;
         drawsSpan.textContent = total - wins - losses;
-    };
-})
+    }
+});
 
 function reset() {
     resetNumber++;
