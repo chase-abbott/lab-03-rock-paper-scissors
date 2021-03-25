@@ -27,4 +27,8 @@
 ## Javascript functionality
 1) get value of radio button
     a) How? document.querySelector('input:checked');
-2)
+2) didUserWine function
+    a) What is it? Assigns the random number to 'rock' 'paper' or 'scissors'
+        a) How? 
+3) reset button
+    a) reset screenshot
