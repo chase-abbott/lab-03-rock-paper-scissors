@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/home.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 
@@ -18,12 +21,18 @@
             Pick Rock, Paper, or Scissors to Beat the Computer!
         </header>
         <section class="selectors">
-            <input type="radio" name="rps" value="rock" id="rock" checked>
-            <label for="rock"> Rock </label>
-            <input type="radio" name="rps" value="paper" id="paper">
-            <label for="paper"> Paper </label>
-            <input type="radio" name="rps" value="scissors" id="scissors">
-            <label for="scissors"> Scissors </label>
+            <label>
+                <input type="radio" name="rps" value="rock" id="rock" checked>
+                <img src="assets/rock.png">
+            </label>
+            <label>
+                <input type="radio" name="rps" value="paper" id="paper">
+                <img src="assets/paper.png">
+            </label>
+            <label>
+                <input type="radio" name="rps" value="scissors" id="scissors">
+                <img src="assets/scissors.png">
+            </label>
         </section>
         <div id="results-div"></div>
         <div id="buttons">

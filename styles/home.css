@@ -1,11 +1,7 @@
 /* add home page styles here */
-
-
-.selectors {
-    display: flex;
-    flex-direction: row;
+header {
+    padding: 25px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 
-input:checked{
-    box-shadow: 2px 2px 10px 2px black;
-}

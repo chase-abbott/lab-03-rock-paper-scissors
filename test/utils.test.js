@@ -1,18 +1,18 @@
 // IMPORT MODULES under test here:
-import { numberGenerator, didUserWin } from './utils.js';
+import { getRandomThrow, didUserWin } from './utils.js';
 
 const test = QUnit.test;
 
 test('This should return scissors', (expect) => {
-    expect.equal(numberGenerator(.2), 'paper');
+    expect.equal(getRandomThrow(.2), 'paper');
 });
 
 test('This should return paper', (expect) => {
-    expect.equal(numberGenerator(.5), 'scissors');
+    expect.equal(getRandomThrow(.5), 'scissors');
 });
 
 test('This should return rock', (expect) => {
-    expect.equal(numberGenerator(.7), 'rock');
+    expect.equal(getRandomThrow(.7), 'rock');
 });
 
 test('This should return true', (expect) => {

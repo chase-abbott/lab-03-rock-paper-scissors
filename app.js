@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { numberGenerator, didUserWin } from './test/utils.js';
+import { getRandomThrow, didUserWin } from './test/utils.js';
 
 const resultsDiv = document.querySelector('#results-div');
 const submitButton = document.querySelector('#submit');
@@ -21,7 +21,7 @@ let resetNumber = 0;
 submitButton.addEventListener('click', () => {
     total++;
 
-    let computerThrow = numberGenerator(Math.random());
+    let computerThrow = getRandomThrow(Math.random());
 
     if (didUserWin(userGuess, computerThrow) === 'win') {
         wins++;
