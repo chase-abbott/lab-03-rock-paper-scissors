@@ -26,17 +26,20 @@ submitButton.addEventListener('click', () => {
     if (didUserWin(userGuess, computerThrow) === 'win') {
         wins++;
         resultsDiv.textContent = 'You won!';
+        resultsDiv.style.backgroundColor = "green";
         winsSpan.textContent = wins;
         lossesSpan.textContent = losses;
         drawsSpan.textContent = total - wins - losses;
     } else if ((didUserWin(userGuess, computerThrow) === 'loss')) {
         losses++;
         resultsDiv.textContent = 'You Lost :(';
+        resultsDiv.style.backgroundColor = "red";
         winsSpan.textContent = wins;
         lossesSpan.textContent = losses;
         drawsSpan.textContent = total - wins - losses;
     } else {
         resultsDiv.textContent = "It's a Draw!";
+        resultsDiv.style.backgroundColor = "yellow";
         winsSpan.textContent = wins;
         lossesSpan.textContent = losses;
         drawsSpan.textContent = total - wins - losses;
@@ -52,6 +55,7 @@ function reset() {
     lossesSpan.textContent = 0;
     drawsSpan.textContent = 0;
     resetSpan.textContent = resetNumber;
+
 }
 
 resetButton.addEventListener('click', reset);
