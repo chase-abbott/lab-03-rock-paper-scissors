@@ -179,3 +179,7 @@ label {
     font-family: 'Roboto', sans-serif;
 
 }
+
+hidden {
+    display: none;
+}

@@ -11,9 +11,8 @@ const winsSpan = document.querySelector('#wins-span');
 const lossesSpan = document.querySelector('#losses-span');
 const drawsSpan = document.querySelector('#draws-span');
 const resetSpan = document.querySelector('#reset-span');
-const userInput = document.querySelector('input:checked');
-const userGuess = userInput.value;
 const resultsImage = document.querySelector('#results-image');
+
 
 // initialize state
 let wins = 0;
@@ -23,8 +22,12 @@ let resetNumber = 0;
 
 // set event listeners to update state and DOM
 submitButton.addEventListener('click', () => {
+    const userInput = document.querySelector('input:checked');
+    const userGuess = userInput.value;
     total++;
+    console.log(userInput);
     let computerThrow = getRandomThrow(Math.random());
+
     switch (computerThrow) {
         case 'paper':
             resultsImage.src = paper;
