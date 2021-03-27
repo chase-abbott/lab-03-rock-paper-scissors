@@ -1,5 +1,8 @@
 // import functions and grab DOM elements
 import { getRandomThrow, didUserWin } from './test/utils.js';
+const scissors = './assets/scissors.png';
+const paper = './assets/paper.png';
+const rock = './assets/rock.png';
 
 const resultsDiv = document.querySelector('#results-div');
 const submitButton = document.querySelector('#submit');
@@ -8,8 +11,8 @@ const winsSpan = document.querySelector('#wins-span');
 const lossesSpan = document.querySelector('#losses-span');
 const drawsSpan = document.querySelector('#draws-span');
 const resetSpan = document.querySelector('#reset-span');
-const userInput = document.querySelector('input:checked');
-const userGuess = userInput.value;
+const resultsImage = document.querySelector('#results-image');
+
 
 // initialize state
 let wins = 0;
@@ -19,30 +22,54 @@ let resetNumber = 0;
 
 // set event listeners to update state and DOM
 submitButton.addEventListener('click', () => {
+    const userInput = document.querySelector('input:checked');
+    const userGuess = userInput.value;
     total++;
-
+    console.log(userInput);
     let computerThrow = getRandomThrow(Math.random());
 
-    if (didUserWin(userGuess, computerThrow) === 'win') {
-        wins++;
-        resultsDiv.textContent = 'You won!';
-        resultsDiv.style.backgroundColor = 'green';
-        winsSpan.textContent = wins;
-        lossesSpan.textContent = losses;
-        drawsSpan.textContent = total - wins - losses;
-    } else if ((didUserWin(userGuess, computerThrow) === 'loss')) {
-        losses++;
-        resultsDiv.textContent = 'You Lost :(';
-        resultsDiv.style.backgroundColor = 'red';
-        winsSpan.textContent = wins;
-        lossesSpan.textContent = losses;
-        drawsSpan.textContent = total - wins - losses;
-    } else {
-        resultsDiv.textContent = "It's a Draw!";
-        resultsDiv.style.backgroundColor = 'yellow';
-        winsSpan.textContent = wins;
-        lossesSpan.textContent = losses;
-        drawsSpan.textContent = total - wins - losses;
+    switch (computerThrow) {
+        case 'paper':
+            resultsImage.src = paper;
+            break;
+        case 'rock':
+            resultsImage.src = rock;
+            break;
+        case 'scissors':
+            resultsImage.src = scissors;
+            break;
+        default: null;
+    }
+
+    const result = didUserWin(userGuess, computerThrow);
+
+    switch (result) {
+        case 'win':
+            wins++;
+            resultsDiv.textContent = 'You won!';
+            resultsDiv.style.backgroundColor = 'green';
+            winsSpan.textContent = wins;
+            lossesSpan.textContent = losses;
+            drawsSpan.textContent = total - wins - losses;
+            break;
+
+        case 'loss':
+            losses++;
+            resultsDiv.textContent = 'You Lost :(';
+            resultsDiv.style.backgroundColor = 'red';
+            winsSpan.textContent = wins;
+            lossesSpan.textContent = losses;
+            drawsSpan.textContent = total - wins - losses;
+            break;
+
+        case 'draw':
+            resultsDiv.textContent = "It's a Draw!";
+            resultsDiv.style.backgroundColor = 'yellow';
+            winsSpan.textContent = wins;
+            lossesSpan.textContent = losses;
+            drawsSpan.textContent = total - wins - losses;
+            break;
+        default: null;
     }
 });
 
@@ -55,7 +82,7 @@ function reset() {
     lossesSpan.textContent = 0;
     drawsSpan.textContent = 0;
     resetSpan.textContent = resetNumber;
-
+    resultsDiv.display = 'none';
 }
 
 resetButton.addEventListener('click', reset);
